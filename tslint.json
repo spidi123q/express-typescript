@@ -60,6 +60,8 @@
       true,
       "ignore-params"
     ],
+    "match-default-export-name": false,
+    "no-unused-variable": false,
     "no-misused-new": true,
     "no-non-null-assertion": true,
     "no-shadowed-variable": true,

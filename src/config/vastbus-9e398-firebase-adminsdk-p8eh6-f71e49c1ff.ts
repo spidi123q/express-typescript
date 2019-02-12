@@ -1,4 +1,4 @@
-{
+export default {
   "type": "service_account",
   "project_id": "vastbus-9e398",
   "private_key_id": "f71e49c1ffd4d31e2cc75237068228c91e0aae17",

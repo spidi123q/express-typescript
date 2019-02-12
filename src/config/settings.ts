@@ -1,6 +1,6 @@
-import * as mongoose from 'mongoose';
+import mongoose from 'mongoose';
 
-const config = require('../config/config.json');
+import config  from '../config/config'
 
 const env = process.env.environment || 'development';
 

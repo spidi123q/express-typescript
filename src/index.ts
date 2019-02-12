@@ -1,11 +1,11 @@
-import * as express from 'express';
+import express from 'express';
 import * as bodyParser from 'body-parser';
 
 import { appRouter } from './routes/route'
 import { mongooseConnect } from './config/settings';
 //import { validateFirebaseIdToken } from './routes/validator/firebase';
-const serviceAccount = require("./config/vastbus-9e398-firebase-adminsdk-p8eh6-f71e49c1ff.json");
-import * as cors from 'cors';
+const serviceAccount = require("./config/vastbus-9e398-firebase-adminsdk-p8eh6-f71e49c1ff");
+import cors from 'cors';
 
 /* admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
