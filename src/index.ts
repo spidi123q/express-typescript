@@ -12,7 +12,7 @@ import * as cors from 'cors';
 }); */
 
 
-const port = process.env.PORT || 90900;
+const port = process.env.PORT || 9090;
 
 /** Application class: Main class of the server  */
 class App {
