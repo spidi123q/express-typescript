@@ -1,3 +1,3 @@
 # express-typescript
 
-simple api
+simple express api with vscode debugging configuration
