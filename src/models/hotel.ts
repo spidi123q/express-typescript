@@ -1,12 +1,10 @@
 import { PaginateModel, Document, Schema, Model, model} from "mongoose";
-import { Review } from "./review";
 import mongoosePaginate from 'mongoose-paginate';
 import mongooseAggregatePaginate from 'mongoose-aggregate-paginate';
 
 export interface Hotel extends Document {
     name: string;
     locationInfo: Location;
-    reviews: Array<Review>;
     categories: Array<string>;
 }
 

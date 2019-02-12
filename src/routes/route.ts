@@ -9,7 +9,7 @@ class AppRoutes {
         this.router = express.Router();
         //this.router.use(validateFirebaseIdToken)
         //this.router.post('/', validation(screenValidation.validator.screen), addScreen);
-        this.router.post('/booking', bookHotel)
+        this.router.get('/booking', bookHotel)
     }
 }
 
