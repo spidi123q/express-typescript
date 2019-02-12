@@ -41,7 +41,7 @@ class App {
 
     /** Configure routes throughout the REST API which are defined in route.ts file */
     this.app.use(cors())
-    this.app.use(appRouter);
+    this.app.use("/api/v1", appRouter);
 
     //connect db
     mongooseConnect()
