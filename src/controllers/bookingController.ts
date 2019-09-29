@@ -1,12 +1,16 @@
 import { Response, Request } from 'express';
-import { successResponse } from '../middleware/default-response';
-import { errorResponse } from './../middleware/default-response';
+import { Path, Accept, GET, PathParam } from 'typescript-rest';
+import { ApiResponse } from '../interfaces/ApiResponse';
 
-export const bookHotel = async (req: Request, res: Response) => {
-    try {
-        let result = 'hello'//await bookingService.bookHotel(data);
-        successResponse(res, result);
-    } catch (err) {
-        errorResponse(res, err);
-    }
+@Path("/booking")
+export default class BookingController {
+    @Path("/:userId/books/:bookId")
+    @GET
+    getUserBook(@PathParam("userId") userId: number, @PathParam("bookId") bookId: number): ApiResponse<boolean> {
+       const response: ApiResponse<boolean> = {
+          message: 'success',
+          data: false
+       }
+      return response
+   }
 }
