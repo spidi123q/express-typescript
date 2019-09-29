@@ -12,7 +12,8 @@ var options = {
     auto_reconnect: true,
     reconnectTries: 60,
     reconnectInterval: 500,
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true 
 };
 
 mongoose.connection.on('connecting', function () {

@@ -7,6 +7,7 @@ import { mongooseConnect } from './config/settings';
 //import { validateFirebaseIdToken } from './routes/validator/firebase';
 const serviceAccount = require("./config/vastbus-9e398-firebase-adminsdk-p8eh6-f71e49c1ff");
 import cors from 'cors';
+import BookingController from './controllers/bookingController';
 
 /* admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
@@ -31,7 +32,9 @@ class App {
     //connect db
     mongooseConnect()
 
-    Server.loadServices(this.app, 'controllers/*', __dirname);
+    Server.buildServices(this.app,
+      BookingController
+    );
     Server.swagger(this.app, {
       endpoint: 'swagger',
       filePath: 'dist/swagger.yaml',

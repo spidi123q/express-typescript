@@ -4,6 +4,7 @@ import { ApiResponse } from '../interfaces/ApiResponse';
 
 @Path("/booking")
 export default class BookingController {
+   
     @Path("/:userId/books/:bookId")
     @GET
     getUserBook(@PathParam("userId") userId: number, @PathParam("bookId") bookId: number): ApiResponse<boolean> {
