@@ -9,7 +9,7 @@
   "license": "MIT",
   "keywords": [],
   "scripts": {
-    "serve": "swaggerGen -c ./swaggerConfig.json && ts-node src/index.ts",
+    "serve": "swaggerGen -c ./swaggerConfig.json && ts-node src/start.ts",
     "describe": "npm-scripts-info",
     "build": "run-s clean && run-p build:*",
     "build:main": "tsc -p tsconfig.json",
@@ -61,6 +61,7 @@
     "body-parser": "*",
     "cors": "*",
     "csvtojson": "*",
+    "dotenv": "*",
     "express": "*",
     "express-validation": "*",
     "joi": "*",

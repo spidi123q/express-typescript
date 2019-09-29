@@ -2119,6 +2119,11 @@ dot-prop@^5.1.0:
   dependencies:
     is-obj "^2.0.0"
 
+dotenv@^8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.1.0.tgz#d811e178652bfb8a1e593c6dd704ec7e90d85ea2"
+  integrity sha512-GUE3gqcDCaMltj2++g6bRQ5rBJWtkWTmqmD0fo1RnnMuUqHNCt2oTPeDnS9n6fKYvlhn7AeBkb38lymBtWBQdA==
+
 dotgitignore@2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/dotgitignore/-/dotgitignore-2.1.0.tgz#a4b15a4e4ef3cf383598aaf1dfa4a04bcc089b7b"
@@ -6448,7 +6453,7 @@ typedoc@*:
     typedoc-default-themes "^0.6.0"
     typescript "3.5.x"
 
-typescript-ioc@^1.2.5:
+typescript-ioc@*:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/typescript-ioc/-/typescript-ioc-1.2.5.tgz#a8431c439708ddff8999f8aa3932e04c2bd125ab"
   integrity sha512-HErBOZfOmrJ9N8QZDOHvP56FqvqZJMkaFW9Qm4ExQa93ilUnhQ+S7n80rVfUQPceZWIImsEBU/Kt19W5KXBDEw==
@@ -6456,7 +6461,7 @@ typescript-ioc@^1.2.5:
     reflect-metadata "^0.1.10"
     require-glob "^3.2.0"
 
-typescript-rest@^2.2.2:
+typescript-rest@*:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/typescript-rest/-/typescript-rest-2.2.2.tgz#5b335306d21d175f9a8808a89ac21703c0a501ce"
   integrity sha512-7+AzOAalRJdubmkLVa4H+dGO9dSByiQJaPJtMhMzOqSMnKo/UISQS7HsnchGhG/JtfG/AtkLqypDexnxD5qhZA==

@@ -1,3 +1,4 @@
+import dotenv from 'dotenv'
 import express from 'express';
 import { Express } from 'express'
 import BodyParser from 'body-parser';
@@ -13,8 +14,8 @@ import BookingController from './controllers/bookingController';
     credential: admin.credential.cert(serviceAccount),
 }); */
 
-
-const port = process.env.PORT || 9090;
+const result = dotenv.config()
+console.log('ENV: ', result.parsed) 
 
 /** Application class: Main class of the server  */
 class App {
@@ -39,15 +40,9 @@ class App {
       endpoint: 'swagger',
       filePath: 'dist/swagger.yaml',
     });
-
-    this.app.listen(port, (err) => {
-      if (err) {
-        return console.log(err);
-      }
-      return console.log(`server is listening on ${port}`);
-    });
   }
 
 }
 
-export default new App().app;
+const app = new App().app;
+export default app;
