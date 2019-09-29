@@ -69,8 +69,8 @@
     "mongoose-aggregate-paginate": "*",
     "mongoose-paginate": "*",
     "sha.js": "*",
-    "typescript-ioc": "^1.2.5",
-    "typescript-rest": "^2.2.2",
+    "typescript-ioc": "*",
+    "typescript-rest": "*",
     "winston": "*"
   },
   "devDependencies": {
