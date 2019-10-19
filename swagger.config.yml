@@ -1,0 +1,15 @@
+swagger:
+  specVersion: 3
+  outputDirectory: ./dist
+  entryFile: 
+    - ./src/controllers/*
+  outputFormat: OpenApi_3
+  name: Typescript-rest Boilerplate Application
+  description: A Sample application using Typescipt-rest library
+  license: MIT
+  produces: [application/json]
+  version: 0.0.1
+  securityDefinitions:
+    default:
+      type: http
+      scheme: bearer

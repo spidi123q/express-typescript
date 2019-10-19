@@ -1,21 +1,27 @@
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
 import express from 'express';
-import { Express } from 'express'
+import { Express } from 'express';
 import BodyParser from 'body-parser';
-import { Server, Path, GET, PathParam } from "typescript-rest";
+import FirebaseAdmin from 'firebase-admin';
+import {
+  Server,
+  Path,
+  GET,
+  PathParam,
+  PassportAuthenticator
+} from 'typescript-rest';
+import { ExtractJwt, Strategy, StrategyOptions } from 'passport-jwt';
 
 import { mongooseConnect } from './config/settings';
 //import { validateFirebaseIdToken } from './routes/validator/firebase';
-const serviceAccount = require("./config/vastbus-9e398-firebase-adminsdk-p8eh6-f71e49c1ff");
 import cors from 'cors';
-import BookingController from './controllers/bookingController';
 
 /* admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
 }); */
 
-const result = dotenv.config()
-console.log('ENV: ', result.parsed) 
+const result = dotenv.config();
+console.log('ENV: ', result.parsed);
 
 /** Application class: Main class of the server  */
 class App {
@@ -28,20 +34,37 @@ class App {
     this.app.use(BodyParser.json());
 
     /** Configure routes throughout the REST API which are defined in route.ts file */
-    this.app.use(cors())
+    this.app.use(cors());
 
     //connect db
-    mongooseConnect()
+    mongooseConnect();
 
-    Server.buildServices(this.app,
-      BookingController
+    //init firebase
+    FirebaseAdmin;
+    const JWT_SECRET: string = 'some-jwt-secret';
+    const jwtConfig: StrategyOptions = {
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      secretOrKey: Buffer.from(JWT_SECRET)
+    };
+    const strategy = new Strategy(
+      jwtConfig,
+      (payload: any, done: (err: any, user: any) => void) => {
+        done(null, payload);
+      }
     );
+    const authenticator = new PassportAuthenticator(strategy, {
+      deserializeUser: (user: string) => JSON.parse(user),
+      serializeUser: (user: any) => {
+        return JSON.stringify(user);
+      }
+    });
+    Server.registerAuthenticator(authenticator);
+    Server.loadServices(this.app, 'controllers/*', __dirname);
     Server.swagger(this.app, {
       endpoint: 'swagger',
-      filePath: 'dist/swagger.yaml',
+      filePath: 'dist/swagger.yaml'
     });
   }
-
 }
 
 const app = new App().app;
